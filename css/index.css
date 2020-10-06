@@ -1,0 +1,43 @@
+:root {
+    --bg-color: white;
+    --txt-color: black;
+}
+
+/* Since Navbar is Fixed and Z-Index is added Other Contents/Componenets will be hidden  */
+/* Copied From BootStrap: https://v5.getbootstrap.com/docs/5.0/examples/sticky-footer/*/
+/* Copied From BootStrap: https://v5.getbootstrap.com/docs/5.0/examples/sticky-footer-navbar/ */
+.main-body > div {
+    padding-top: 78px;
+    padding-bottom: 80px;
+}
+
+/* IF in Large Screen Mkae Sure the Home Page Intro Takes the Full Screen and Content be On Center*/
+@media (min-width: 764px) { 
+    .short-info {
+        height: 100vh;  
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Make The Short Intro Look Better */
+.short-info h1 {
+    font-weight: 700;
+    font-size: 3.6rem;
+}
+
+.short-info h2 {
+    font-weight: 560;
+    font-size: 2.4rem;
+}
+
+.short-info p {
+    font-weight: 360;
+    font-size: 2rem;
+}
+
+.socio-links span{
+    padding: 4px;
+}
