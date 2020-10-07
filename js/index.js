@@ -49,7 +49,7 @@ function createAccordCard(collapse_name, progress_percent, skill_name, skill_des
 
 function skill_filler(skill_json) {
     document.querySelector(".skill-accord").innerHTML = "";
-    skill_json = skill_json.sort(function (a, b) { return b.skill_level - a.skill_level })
+    // skill_json = skill_json.sort(function (a, b) { return b.skill_level - a.skill_level })
     for (one_skill_id in skill_json) {
         document.querySelector(".skill-accord").innerHTML += createAccordCard(
             "accord_collapse_" + one_skill_id,
@@ -60,7 +60,7 @@ function skill_filler(skill_json) {
     }
 }
 
-skill_json = [
+let skill_json = [
     {
         "skill_name": "Linux",
         "skill_desc": "Exploring Linux, have been Working on Installing, Configuring, TroubleShooting Linux Based Application. TroubleShooting SafeSquid-Secure Web Gateway",
@@ -141,12 +141,24 @@ skill_json = [
         "skill_desc": "...",
         "skill_level": "60"
     }
-]
-
-
-skill_filler(skill_json)
+];
+let sorted = false;
 
 /** ^_^ Just Testing */
 document.querySelector(".short-info-switcher").addEventListener('click', () => {
     cardTextToCenter("short-info > .card");
+})
+
+skill_filler(skill_json);
+
+/*** Still In Progress */
+document.querySelector(".sort-skills").addEventListener('click', () => {
+    if (sorted) {
+        skill_filler(skill_json);
+    } else {
+        let skill_json2 = skill_json.sort(function (a, b) { return b.skill_level - a.skill_level })
+        console.log("Skill:", skill_json, "Skill2: ", skill_json2)
+        skill_filler(skill_json2);
+        sorted = true;
+    }
 })
