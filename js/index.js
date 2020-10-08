@@ -20,17 +20,13 @@ function cardTextToCenter(class_name) {
 function createAccordCard(collapse_name, progress_percent, skill_name, skill_desc) {
 
     accordCard = `
-    <div class="card">
+    <div class="card border-bottom mb-2">
         <div class="card-header p-0" id="headingOne">
             <h2 class="mb-0">
-                <button class="btn btn-light btn-block text-left p-2 rounded-0" 
-                    type="button" data-toggle="collapse" data-target="#${collapse_name}" aria-expanded="true"
-                    aria-controls="${collapse_name}">
-                    <h4>${skill_name}</h4>
-                </button>
                 <div class="progress" style="height: 1.9rem">
-                    <div class="progress-bar bg-dark" role="progressbar" style="width: ${progress_percent}%;">
-                        <h5>${progress_percent}%</h5>
+                    <div class="progress-bar bg-dark" role="progressbar" style="width: ${progress_percent}%;" data-toggle="collapse" data-target="#${collapse_name}" aria-expanded="true"
+                    aria-controls="${collapse_name}">
+                    <h5>${skill_name} [${progress_percent}%] </h5>
                     </div>
                 </div>
             </h2>
