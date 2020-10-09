@@ -9,7 +9,7 @@
 /* Copied From BootStrap: https://v5.getbootstrap.com/docs/5.0/examples/sticky-footer-navbar/ */
 .main-body > div {
     padding-top: 85px; /* Header(NavBar) */
-    padding-bottom: 80px; /* Footer */
+    padding-bottom: 85px; /* Footer */
 }
 
 .nav-item {
@@ -26,19 +26,15 @@
 
 /* Make The Short Intro Look Better */
 .short-info .card-header p {
-    font-weight: 600;
-    font-size: 3.6rem;
+    font-weight: 560;
+    font-size: 2.4em;
 }
 
-.short-info .card-body p {
+.short-info .card-body h6 {
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 1.8em;
 }
 
-.about-me .card h5 {
-    font-weight: 400;
-    font-size: 2rem;
-}
 
 .socio-links a{
     padding: 4px;
@@ -58,13 +54,12 @@
 @media (max-width: 764px) { 
     /* Make The Short Intro Look Better */
     .short-info .card-header p {
-        font-weight: 360;
-        font-size: 2.4rem;
+        font-weight: 420;
+        font-size: 1.8rem;
     }
     
-    .short-info .card-body p {
-        font-weight: 280;
-        font-size: 2rem;
+    .short-info .card-body h6 {
+        font-size: 1.2em;
     }
 
     .socio-links span{

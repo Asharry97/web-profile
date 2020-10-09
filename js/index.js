@@ -23,10 +23,14 @@ function createAccordCard(collapse_name, progress_percent, skill_name, skill_des
     <div class="card border-bottom mb-2">
         <div class="card-header p-0" id="headingOne">
             <h2 class="mb-0">
-                <div class="progress" style="height: 1.9rem">
-                    <div class="progress-bar bg-dark" role="progressbar" style="width: ${progress_percent}%;" data-toggle="collapse" data-target="#${collapse_name}" aria-expanded="true"
+                <button class="btn btn-light btn-block text-left p-2 rounded-0" 
+                    type="button" data-toggle="collapse" data-target="#${collapse_name}" aria-expanded="true"
                     aria-controls="${collapse_name}">
-                    <h5>${skill_name} [${progress_percent}%] </h5>
+                    <h5>${skill_name}</h5>
+                </button>
+                <div class="progress" style="height: 1.9rem">
+                    <div class="progress-bar bg-dark" role="progressbar" style="width: ${progress_percent}%;">
+                        <h6>${progress_percent}%</h6>
                     </div>
                 </div>
             </h2>
@@ -34,7 +38,7 @@ function createAccordCard(collapse_name, progress_percent, skill_name, skill_des
     
         <div id="${collapse_name}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
-                <p>${skill_desc}</p>
+                <h6>${skill_desc}</h6>
             </div>
         </div>
     </div>
