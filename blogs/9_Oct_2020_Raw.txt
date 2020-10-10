@@ -1,0 +1,123 @@
+Open Web Application Security Project
+			OWASP Top 10
+
+------------
+Quick View
+---------------
+(1) InJection
+(2) Broken Authentication
+(3) Sensitive Data Exposure
+(4) XML External Entities (XXE)
+(5) Broken Access Control
+(6) Security Misconfiguration
+(7) Cross-Site Scripting (XSS)
+(8) Insecure Deserialization
+(9) Using Components with Known Vulnerabilities
+(10) Insufficient Logging & Monitoring
+
+
+-----------------
+Detailed View
+-----------------
+
+(1) InJection
+--------------
+ - Improper Sanitization
+Types:
+- SQL
+- NoSQL
+- LDAP
+- OS(Command)
+
+
+(2) Broken Authentication
+--------------------------
+ - Predictable Cookie Values
+	[User Credentails Provided in Cookie]
+	=> User Credentails Provided in Cookie & any Quess work can actually let access to other account
+	[If Cookie Management on Server is also Broken]
+ - Passwords, Session IDs, and other credentials sent over unencrypted connections
+ [Kinda Managing Wrong Cookie Flags -> "Secure" Missing]
+ - Default UserName & Passwords
+ - No Password Policy
+ - Wrong Reset/Forget Password Functionality
+ 
+
+(3) Sensitive Data Exposure
+----------------------------
+ - Using Default Config
+ - Website Works in HTTP as well (Should not process data in http and send redirect to home page for http(plain) request)
+ - TLS Misconfiguration
+    - Older TLS Version
+	- Weak CipherSuite
+ - SSL Validation
+ - Validate User For Particular Resource
+ - Security Headers Missing 
+ 
+ 
+(4) XML External Entities (XXE)
+--------------------------------
+ - XML Parsing Without Sanitization
+ - XML uses DTD which helps to create vars for reusability but it also allows "SYSTEM" which means it can take a file argas and retrive the file and print it
+ 
+ 
+(5) Broken Access Control
+--------------------------
+ - CORS Misconfiguration Allows Access to Unwanted Domains
+ - Allow Less HTTP Methods
+ - Verfiying Resource Permission
+
+
+(6) Security Misconfiguration
+--------------------------------
+ - Default User Creds
+ - Directory Listing
+ - Debugging Info Returned To Clients
+ 
+
+(7) Cross-Site Scripting (XSS)
+-------------------------------
+Types:
+ - Reflected XSS
+ - Stored XSS
+ - DOM XSS
+
+
+(8) Insecure Deserialization
+-----------------------------
+ - Logical or Development Faults
+ - 
+
+
+(9) Using Components with Known Vulnerabilities
+-------------------------------------------------
+ - Using a Lib which is having already a CVE
+ - When Installing Packages using NPM it tells you that the packages has some deps and NPM does the audit for it.
+
+
+(10) Insufficient Logging & Monitoring
+------------------------------------------
+ - Forged Fuzzing Requests are Logged in Most of the Web Server, they can be used to Identify the Kind of Attack is going to happen and come up with new Stratergy or Restriction to Sage Guard your Web Application
+
+
+Mitigation Stratergy
+----------------------
+Cookie Restrictions
+
+-> XSS
+	- CSP
+	- Input Validation
+
+-> CSRF
+	- CSRF Token
+	- SameSite Cookie [By Default the SameSite Cookie Restriction is Applied]
+
+
+Some Good Terms
+----------------
+-> CRLF
+The CRLF abbreviation refers to Carriage Return and Line Feed. CR and LF are special characters (ASCII 13 and 10 respectively, also referred to as \r\n) that are used to signify the End of Line (EOL). The CRLF sequence is used in operating systems including Windows (but not Linux/UNIX) and Internet protocols including HTTP.
+
+-> CORS
+Cross Origin Resource Sharing
+
