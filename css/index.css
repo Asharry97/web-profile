@@ -43,7 +43,7 @@
 /* IF in Large Screen Make Sure the Home Page Intro Takes the Full Screen and Content be On Center*/
 @media (min-width: 764px)  { 
     .short-info {
-        min-height: 100vh;
+        min-height: 480px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -68,3 +68,15 @@
 
 }
 
+.container-main-custom {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-header {
+    display: flex;
+    justify-content: space-between;
+}

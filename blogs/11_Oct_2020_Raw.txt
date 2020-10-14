@@ -1,0 +1,19 @@
+HAProxy:
+---------
+HAProxy (High Availability Proxy) is a free, very fast and reliable solution offering high availability, load balancing, and proxying for TCP and HTTP-based applications.
+
+Traefik:
+---------
+A modern HTTP reverse proxy and load balancer that makes deploying microservices easy. Traefik integrates with your existing infrastructure components and configures itself automatically and dynamically.
+
+Envoy:
+---------
+Originally built at Lyft, Envoy is a high performance C++ distributed proxy designed for single services and applications, as well as a communication bus and “universal data plane” designed for large microservice “service mesh” architectures.
+
+DigitalOcean Load Balancer:
+---------------------------
+Load Balancers are a highly available, fully-managed service that work right out of the box and can be deployed as fast as a Droplet. Load Balancers distribute incoming traffic across your infrastructure to increase your application's availability.
+
+GLBC:
+------
+It is a GCE L7 load balancer controller that manages external loadbalancers configured through the Kubernetes Ingress API.
