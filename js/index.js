@@ -17,8 +17,8 @@ function cardTextToCenter(class_name) {
  *   skill_desc
  */
 
-function createAccordCard(collapse_name, progress_percent, skill_name, skill_desc) {
-
+function createAccordCard(skills, seq_no) {
+    collapse_name = `accord_collapse_${seq_no}`
     accordCard = `
     <div class="card border-bottom mb-2">
         <div class="card-header p-0" id="headingOne">
@@ -26,11 +26,11 @@ function createAccordCard(collapse_name, progress_percent, skill_name, skill_des
                 <button class="btn btn-light btn-block text-left p-2 rounded-0" 
                     type="button" data-toggle="collapse" data-target="#${collapse_name}" aria-expanded="true"
                     aria-controls="${collapse_name}">
-                    <h5>${skill_name}</h5>
+                    <h5>${skills.skill_name}</h5>
                 </button>
                 <div class="progress" style="height: 1.9rem">
-                    <div class="progress-bar bg-dark" role="progressbar" style="width: ${progress_percent}%;">
-                        <h6>${progress_percent}%</h6>
+                    <div class="progress-bar bg-dark" role="progressbar" style="width: ${skills.skill_level}%;">
+                        <h6>${skills.skill_level}%</h6>
                     </div>
                 </div>
             </h2>
@@ -38,10 +38,25 @@ function createAccordCard(collapse_name, progress_percent, skill_name, skill_des
     
         <div id="${collapse_name}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
-                <h6>${skill_desc}</h6>
+                <h6>${skills.skill_desc}</h6>
+            </div>
+        `
+
+    if (skills.project_links) {
+        accordCard += `
+        <ul class="list-group list-group-flush">`
+
+        for (one_project_link of skills.project_links) {
+            accordCard += `<li class="list-group-item">${one_project_link}</li>`
+        }
+
+        accordCard += `</ul>
+        `
+    }
+
+    accordCard += `
             </div>
         </div>
-    </div>
     `
     return accordCard;
 
@@ -51,12 +66,7 @@ function skill_filler(skill_json) {
     document.querySelector(".skill-accord").innerHTML = "";
     // skill_json = skill_json.sort(function (a, b) { return b.skill_level - a.skill_level })
     for (one_skill_id in skill_json) {
-        document.querySelector(".skill-accord").innerHTML += createAccordCard(
-            "accord_collapse_" + one_skill_id,
-            skill_json[one_skill_id].skill_level,
-            skill_json[one_skill_id].skill_name,
-            skill_json[one_skill_id].skill_desc
-        );
+        document.querySelector(".skill-accord").innerHTML += createAccordCard(skill_json[one_skill_id], one_skill_id);
     }
 }
 
@@ -64,6 +74,7 @@ let skill_json = [
     {
         "skill_name": "Linux",
         "skill_desc": "Exploring Linux, have been Working on Installing, Configuring, TroubleShooting Linux Based Application. TroubleShooting SafeSquid-Secure Web Gateway",
+        "project_links": ["https://github.com/Asharry97/simple-mail", "https://github.com/Asharry97/Simple-Mini-DNS-Server-v1", "https://github.com/Asharry97/Custom-HTTP-S--Server", "https://github.com/Asharry97/Custom-HTTP-Web-Server"],
         "skill_level": "60"
     },
     {
@@ -149,16 +160,16 @@ document.querySelector(".short-info-switcher").addEventListener('click', () => {
     cardTextToCenter("short-info > .card");
 })
 
-skill_filler(skill_json);
+//skill_filler(skill_json);
 
 /*** Still In Progress */
 document.querySelector(".sort-skills").addEventListener('click', () => {
     if (sorted) {
-        skill_filler(skill_json);
+        //skill_filler(skill_json);
     } else {
         let skill_json2 = skill_json.sort(function (a, b) { return b.skill_level - a.skill_level })
         console.log("Skill:", skill_json, "Skill2: ", skill_json2)
-        skill_filler(skill_json2);
+        //skill_filler(skill_json2);
         sorted = true;
     }
 })

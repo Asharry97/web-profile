@@ -8,7 +8,7 @@
 /* Copied From BootStrap: https://v5.getbootstrap.com/docs/5.0/examples/sticky-footer/*/
 /* Copied From BootStrap: https://v5.getbootstrap.com/docs/5.0/examples/sticky-footer-navbar/ */
 .main-body > div {
-    padding-top: 85px; /* Header(NavBar) */
+    padding-top: 80px; /* Header(NavBar) */
     padding-bottom: 85px; /* Footer */
 }
 
@@ -43,7 +43,7 @@
 /* IF in Large Screen Make Sure the Home Page Intro Takes the Full Screen and Content be On Center*/
 @media (min-width: 764px)  { 
     .short-info {
-        min-height: 480px;
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -80,3 +80,4 @@
     display: flex;
     justify-content: space-between;
 }
+
